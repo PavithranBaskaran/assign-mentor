@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
-const URL =
-  "mongodb+srv://user:user@cluster0.apdks2v.mongodb.net/?retryWrites=true&w=majority";
+const dotenv = require('dotenv').config()
+const URL = process.env.DB;
 
 //middleware
 app.use(express.json());
@@ -142,4 +142,4 @@ app.get("/no-mentors", async function (request, response) {
   }
 });
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
